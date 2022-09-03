@@ -1,5 +1,6 @@
 
   ### Cara menjalankan 
-
-1. Click view -> Tools Windows -> Maven Project
-2. Click clean -> verify
+  
+1.Clone proeject
+2.Click view -> Tools Windows -> Maven Project
+3.Click clean -> verify
