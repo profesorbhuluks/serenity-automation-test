@@ -1,44 +1,34 @@
 package starter.stepdefinitions;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import starter.steps.LibrarySteps;
+import starter.steps.PlayMusicSteps;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class LibraryMusicStepdef {
+public class PlayMusicStepDef {
 
     @Steps
-   LibrarySteps librarySteps;
+    PlayMusicSteps playMusicSteps;
 
-    @Given("^User on youtube music library page$")
-    public void userOnYoutubeMusicLibraryPage() throws Throwable {
-        librarySteps.homePage();
+
+    @Given("^User on youtube music page$")
+    public void userOnYoutubeMusicPage() throws Throwable {
+        playMusicSteps.homePage();
     }
 
-    @When("^User click new playlist$")
-    public void userClickNewPlaylist() throws Throwable {
-        librarySteps.clickNewPlaylist();
+    @When("^User click quick pick music$")
+    public void userClickQuickPickMusic() throws Throwable {
+       playMusicSteps.clickPlayMusic();
     }
 
-    @And("^User input title \"([^\"]*)\"$")
-    public void userInputTitle(String title) throws Throwable {
-       librarySteps.inputPlaylistTitle(title);
-    }
-
-    @And("^User input description \"([^\"]*)\"$")
-    public void userInputDescription(String description) throws Throwable {
-        librarySteps.inputPlaylistDescription(description);
-        librarySteps.clickCreatePalaylistBtn();
-    }
-
-
-    @Then("^User see created library$")
-    public void userSeeCreatedLibrary() throws Throwable {
-        assertThat("Title not match", librarySteps.getTitle(), equalTo("Musik Kerja"));
+    @Then("^User see music played$")
+    public void userSeeMusicPlayed() throws Throwable {
+        assertThat("Button notappears", playMusicSteps.getPalypauseBtn(),equalTo(Boolean.TRUE));
     }
 }

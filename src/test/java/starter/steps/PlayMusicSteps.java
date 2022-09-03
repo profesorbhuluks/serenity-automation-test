@@ -2,40 +2,26 @@ package starter.steps;
 
 
 import net.thucydides.core.annotations.Step;
-import starter.pages.LibraryPage;
+import starter.pages.PlayMusicPage;
 
-public class LibrarySteps {
-    LibraryPage libraryPage;
+public class PlayMusicSteps {
+    PlayMusicPage libraryPage;
 
 
     @Step
     public void homePage() {
-        libraryPage.openAt("https://music.youtube.com/library/playlists");
+        libraryPage.openAt("https://music.youtube.com/");
     }
 
     @Step
-    public void clickNewPlaylist(){
-        libraryPage.clicNewPlaylist();
+    public void clickPlayMusic(){
+        libraryPage.clickMusic();
     }
 
     @Step
-    public void inputPlaylistTitle(String title){
-        libraryPage.inputTitle(title);
-    }
-
-    @Step
-    public void inputPlaylistDescription(String title){
-        libraryPage.inputDescription(title);
-    }
-
-    @Step
-    public void clickCreatePalaylistBtn(){
-        libraryPage.clickCreateBtn();
-    }
-
-    @Step
-    public String getTitle(){
-        return libraryPage.getTitle();
+    public boolean getPalypauseBtn() throws InterruptedException {
+        Thread.sleep(10000);
+        return libraryPage.isBtnPlayPauseAppears();
     }
 
 
